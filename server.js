@@ -11,8 +11,10 @@ const app = express();
 
 app.use(logger);
 app.use(errorHandler);
+app.use(express.json());
 // routes
 app.use("/", require("./routes/root"));
+app.use("/employees", require("./routes/api/employees"));
 
 const whitelist = [
   "https://thisSiteIsAllowed.com",
@@ -36,7 +38,7 @@ app.use(cors(corsOptions));
 // formdata
 app.use(express.urlencoded({ extended: false }));
 // json
-app.use(express.json());
+
 // Serve static files (CSS, JS, images) from the root directory
 app.use(express.static(path.join(__dirname, "./public")));
 

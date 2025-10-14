@@ -2,3 +2,11 @@
 13102025	11:18:46	d974f9f5-2119-41d1-979e-fb6d86dbb132	GET	undefined	/img/frieren.png
 13102025	11:18:52	3f217590-fb5b-456b-9894-40c383c3d161	GET	undefined	/new-page
 13102025	11:18:57	35133dfc-f4b6-44db-b987-eaa13107bbe8	GET	undefined	/new-page.html
+14102025	09:22:11	5013cfb7-5ef7-4001-bb23-378b735f734e	GET	undefined	/employees
+14102025	09:22:15	92896fe1-c31c-4e86-a0cc-1e3005d7f69d	POST	undefined	/employees
+14102025	09:24:54	3cf51030-ee64-471a-b2d0-c63cc9df0153	POST	undefined	/employees
+14102025	09:25:57	c7f9b876-a9f2-43b1-b705-866d349258aa	POST	undefined	/employees
+14102025	09:26:28	f347ddf8-232a-49ca-aff5-a9b45ad535d3	PUT	undefined	/employees
+14102025	09:26:38	6e64ad05-9441-4323-ae67-6b8be6d77e84	PUT	undefined	/employees
+14102025	09:28:30	d56e00d3-5ad7-40b8-b0bd-fa31e57e67b8	PUT	undefined	/employees
+14102025	09:29:09	69e677ee-8842-4334-97ce-2a72e2868edd	DELETE	undefined	/employees
