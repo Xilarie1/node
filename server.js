@@ -6,6 +6,7 @@ const cors = require("cors");
 // first party imports
 const { logger } = require("./middleware/logEvents");
 const errorHandler = require("./middleware/errorHandler");
+const corsOptions = require("./config/corsOptions");
 
 const app = express();
 
@@ -15,23 +16,7 @@ app.use(express.json());
 // routes
 app.use("/", require("./routes/root"));
 app.use("/employees", require("./routes/api/employees"));
-
-const whitelist = [
-  "https://thisSiteIsAllowed.com",
-  "http://127.0.0.1",
-  "http://[::1]:3500",
-  "http://localhost:3500",
-];
-const corsOptions = {
-  origin: (origin, callback) => {
-    if (whitelist.indexOf(origin) !== -1 || !origin) {
-      callback(null, true);
-    } else {
-      callback(new Error("Blocked by CORS!"));
-    }
-  },
-  optionsSuccessStatus: 200,
-};
+app.use("/register", require("./routes/register"));
 
 app.use(cors(corsOptions));
 

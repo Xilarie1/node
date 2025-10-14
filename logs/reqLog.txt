@@ -10,3 +10,9 @@
 14102025	09:26:38	6e64ad05-9441-4323-ae67-6b8be6d77e84	PUT	undefined	/employees
 14102025	09:28:30	d56e00d3-5ad7-40b8-b0bd-fa31e57e67b8	PUT	undefined	/employees
 14102025	09:29:09	69e677ee-8842-4334-97ce-2a72e2868edd	DELETE	undefined	/employees
+14102025	09:57:19	368ac015-55e3-4805-be3e-1ad33368b4ec	POST	undefined	/employees
+14102025	09:57:45	803ff555-5f35-43b9-b8e8-5f9792575167	PUT	undefined	/employees
+14102025	09:58:02	27a106a0-1d0d-4e79-8275-fd8a56ac5a44	DELETE	undefined	/employees
+14102025	10:50:04	fd9d2aa0-4994-4896-a0c3-e9d427da571e	POST	undefined	/register
+14102025	10:51:57	098ba7c6-3815-4f16-b017-6cfab3056db0	POST	undefined	/register
+14102025	10:53:19	dada9671-224d-4dd3-9d2b-e9697b414c61	POST	undefined	/register
