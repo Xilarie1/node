@@ -1,1 +1,20 @@
-[{"username":"User1","password":"$2b$10$L0G1X7emIDCrH1uJE/GvsekSUFeD1Xw7Nd9aqDPat.YiX7QJ1/t7C"}]
+[
+  {
+    "username": "User1",
+    "roles": { "Plebian": 1111 },
+    "password": "$2b$10$L0G1X7emIDCrH1uJE/GvsekSUFeD1Xw7Nd9aqDPat.YiX7QJ1/t7C",
+    "refreshToken": ""
+  },
+  {
+    "username": "User2",
+    "roles": { "Admin": 3333, "Plebian": 1111 },
+    "password": "$2b$10$L0G1X7emIDCrH1uJE/GvsekSUFeD1Xw7Nd9aqDPat.YiX7QJ1/t7C",
+    "refreshToken": ""
+  },
+  {
+    "username": "User3",
+    "roles": { "Janitor": 2222, "Plebian": 1111 },
+    "password": "$2b$10$L0G1X7emIDCrH1uJE/GvsekSUFeD1Xw7Nd9aqDPat.YiX7QJ1/t7C",
+    "refreshToken": ""
+  }
+]
