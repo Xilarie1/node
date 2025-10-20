@@ -10,6 +10,8 @@ const errorHandler = require("./middleware/errorHandler");
 const corsOptions = require("./config/corsOptions");
 const verifyJWT = require("./middleware/verifyJWT");
 
+const db = require("./database/database");
+
 const app = express();
 
 app.use(logger);

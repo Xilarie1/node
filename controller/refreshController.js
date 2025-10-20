@@ -34,4 +34,4 @@ const handleRefreshToken = (req, res) => {
   });
 };
 
-module.exports = { handleLogin };
+module.exports = { handleRefreshToken };
