@@ -1,3 +1,5 @@
+const ROLES_LIST = require("../config/roles_list");
+
 const usersDB = {
   users: require("../model/users.json"),
   setUsers: function (data) {
@@ -21,7 +23,11 @@ const handleNewUser = async (req, res) => {
 
   try {
     const hashedPwd = await bcrypt.hash(pwd, 10);
-    const newUser = { username: user, roles: roles, password: hashedPwd };
+    const newUser = {
+      username: user,
+      roles: { Plebian: ROLES_LIST.Plebian },
+      password: hashedPwd,
+    };
     usersDB.setUsers([...usersDB.users, newUser]);
     await fsPromises.writeFile(
       path.join(__dirname, "..", "model", "users.json"),

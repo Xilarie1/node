@@ -3,6 +3,9 @@ const path = require("path");
 const express = require("express");
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
+const http = require("http");
+const { Server } = require("socket.io");
+const jwt = require("jsonwebtoken");
 
 // first party imports
 const { logger } = require("./middleware/logEvents");
@@ -13,6 +16,8 @@ const verifyJWT = require("./middleware/verifyJWT");
 const db = require("./database/database");
 
 const app = express();
+const server = http.createServer(app);
+const io = new Server(server);
 
 app.use(logger);
 app.use(errorHandler);
@@ -27,10 +32,11 @@ app.use("/", require("./routes/root"));
 app.use("/register", require("./routes/register"));
 app.use("/auth", require("./routes/auth"));
 app.use("/refresh", require("./routes/refresh"));
-app.use("logout", require("./routes/logout"));
+app.use("/logout", require("./routes/logout"));
 
-app.use(verifyJWT);
+//app.use(verifyJWT);
 app.use("/employees", require("./routes/api/employees"));
+app.use("/chat", require("./routes/chat"));
 
 // formdata
 
@@ -46,7 +52,7 @@ app.get(/\/*/, (req, res) => {
     res.json({ error: "404, JSON not found" });
   } else req.accepts("txt");
   {
-    res.type({ error: "404, text not found" });
+    res.type("text").send("404, text not found");
   }
 });
 
@@ -54,7 +60,48 @@ app.get(/\/*/, (req, res) => {
 // app.use((req, res) => {
 //   res.status(404).sendFile(path.join(__dirname, "view", "404.html"));
 // });
+io.use((socket, next) => {
+  const token = socket.handshake.auth.token;
+  console.log("Token received:", token);
+  if (!token) {
+    return next(new Error("Authentication error: No token provided"));
+  }
+  try {
+    const decoded = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET);
+    console.log("✅ Token verified successfully:", decoded); //
+    socket.user = decoded;
+    next();
+  } catch (err) {
+    return next(new Error("Authentication error: Invalid token"));
+  }
+});
+
+io.on("connection", (socket) => {
+  console.log("WebSocket connected:", socket.id);
+  socket.on("chatMessage", (msg) => {
+    const user = socket.user?.username || "Anonymous";
+    console.log("Message received: ", msg);
+    io.emit("chatMessage", msg);
+  });
+  socket.on("sendNotification", (msg) => {
+    io.emit("notification", msg);
+  });
+  socket.on("disconnect", () => {
+    console.log("WebSocket disconnected");
+  });
+});
 
 const PORT = process.env.PORT || 3500;
 
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+server.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
+process.on("SIGINT", () => {
+  try {
+    db.close();
+    console.log("Database connection closed");
+  } catch (err) {
+    console.error("Failed to close database connection", err.message);
+  } finally {
+    process.exit(0);
+  }
+});
