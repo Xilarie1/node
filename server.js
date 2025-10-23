@@ -60,25 +60,24 @@ app.get(/\/*/, (req, res) => {
 // app.use((req, res) => {
 //   res.status(404).sendFile(path.join(__dirname, "view", "404.html"));
 // });
-io.use((socket, next) => {
-  const token = socket.handshake.auth.token;
-  console.log("Token received:", token);
-  if (!token) {
-    return next(new Error("Authentication error: No token provided"));
-  }
-  try {
-    const decoded = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET);
-    console.log("✅ Token verified successfully:", decoded); //
-    socket.user = decoded;
-    next();
-  } catch (err) {
-    return next(new Error("Authentication error: Invalid token"));
-  }
-});
+// io.use((socket, next) => {
+//   const token = socket.handshake.auth.token;
+//   console.log("Token received:", token);
+//   if (!token) {
+//     return next(new Error("Authentication error: No token provided"));
+//   }
+//   try {
+//     const decoded = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET);
+//     socket.user = decoded;
+//     next();
+//   } catch (err) {
+//     return next(new Error("Authentication error: Invalid token"));
+//   }
+// });
 
 io.on("connection", (socket) => {
-  console.log("WebSocket connected:", socket.id);
   socket.on("chatMessage", (msg) => {
+    console.log("received chat message from server", msg);
     const user = socket.user?.username || "Anonymous";
     console.log("Message received: ", msg);
     io.emit("chatMessage", msg);

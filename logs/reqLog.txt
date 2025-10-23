@@ -117,3 +117,8 @@
 23102025	12:38:01	89c61226-20b3-4323-8521-55c66f70c882	GET	undefined	/JS/chat.js
 23102025	12:38:01	b2d39fe5-f196-4326-8eac-579ba49e4d1e	GET	undefined	/.well-known/appspecific/com.chrome.devtools.json
 23102025	12:38:01	1ecbdca3-8944-4d80-934b-35927f4bc388	GET	undefined	/favicon.ico
+23102025	12:44:09	2f68d01d-9a87-4f3b-9b2e-89e3f8770a3b	GET	undefined	/chat
+23102025	12:44:09	355adb46-3a48-4da3-ab5c-98d4bb362e1c	GET	undefined	/css/chat.css
+23102025	12:44:09	d78301ae-8c3a-4118-9b53-3f9544a9d02e	GET	undefined	/JS/chat.js
+23102025	12:44:14	6e407330-650f-4cd3-8f1a-42ccb6256b0c	GET	undefined	/css/chat.css
+23102025	12:44:14	5375bb25-b618-4f93-a7b0-85d4ba4b3bcd	GET	undefined	/.well-known/appspecific/com.chrome.devtools.json
