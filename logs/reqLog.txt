@@ -122,3 +122,14 @@
 23102025	12:44:09	d78301ae-8c3a-4118-9b53-3f9544a9d02e	GET	undefined	/JS/chat.js
 23102025	12:44:14	6e407330-650f-4cd3-8f1a-42ccb6256b0c	GET	undefined	/css/chat.css
 23102025	12:44:14	5375bb25-b618-4f93-a7b0-85d4ba4b3bcd	GET	undefined	/.well-known/appspecific/com.chrome.devtools.json
+23102025	13:09:50	869c8844-a918-4396-86eb-9090511b3ca8	GET	undefined	/chat
+23102025	13:09:50	b89dda2b-1291-470c-bde7-4acfac172c16	GET	undefined	/.well-known/appspecific/com.chrome.devtools.json
+23102025	13:09:50	e7866ce5-d9cd-47e5-96d2-0b9822addfe0	GET	undefined	/css/chat.css
+23102025	13:09:50	feb088c6-7ff7-44b3-be74-b1fb50ea1fb9	GET	undefined	/JS/chat.js
+23102025	13:09:51	5205d21a-9d6b-4fa7-a880-019feeead44f	GET	undefined	/favicon.ico
+27102025	09:41:50	29dd6aa6-b15c-488d-b97b-b4e167c8bf36	GET	undefined	/
+27102025	09:41:50	3827b573-d4d3-4afd-8824-f98ea626e6a3	GET	undefined	/img/frieren.png
+27102025	09:41:50	5a0d776b-5f24-4ada-8f9b-440ae5c97cb3	GET	undefined	/favicon.ico
+27102025	09:41:55	745788d7-f2e7-488a-8376-47ae4c97a381	GET	undefined	/chat
+27102025	09:41:56	763d03e3-4fcd-41aa-81b7-675bcad9df24	GET	undefined	/css/chat.css
+27102025	09:41:56	5c0f37fe-c656-48ca-aa2b-7fe8e597fea2	GET	undefined	/JS/chat.js
