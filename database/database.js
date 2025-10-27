@@ -13,6 +13,38 @@ db.prepare(
     )`
 ).run();
 
+db.prepare(
+  `
+  CREATE TABLE IF NOT EXISTS projects (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  employee_id INTEGER NOT NULL,
+  project_name TEXT NOT NULL,
+  deadline TEXT,
+  FOREIGN KEY (employee_id) REFERENCES employees(id)
+  )`
+).run();
+
+db.prepare(
+  `
+  CREATE TABLE IF NOT EXISTS skills (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  name TEXT NOT NULL UNIQUE
+  )
+  `
+).run();
+
+db.prepare(
+  `
+    CREATE TABLE IF NOT EXISTS employee_skills(
+    employee_id INTEGER NOT NULL, 
+    skill_id INTEGER NOT NULL, 
+    PRIMARY KEY (employee_id, skill_id),
+    FOREIGN KEY (employee_id) REFERENCES employees(id),
+    FOREIGN KEY(skill_id) REFERENCES skills(id)
+    )
+    `
+).run();
+
 console.log("Table created");
 
 module.exports = db;

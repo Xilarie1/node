@@ -37,6 +37,8 @@ app.use("/logout", require("./routes/logout"));
 //app.use(verifyJWT);
 app.use("/employees", require("./routes/api/employees"));
 app.use("/chat", require("./routes/chat"));
+app.use("/projects", require("./routes/projects"));
+app.use("/skills", require("./routes/employeeSkills"));
 
 // formdata
 
@@ -80,7 +82,7 @@ io.on("connection", (socket) => {
     console.log("received chat message from server", msg);
     const user = socket.user?.username || "Anonymous";
     console.log("Message received: ", msg);
-    io.emit("chatMessage", msg);
+    io.emit("chatMessage", { user, message: msg });
   });
   socket.on("sendNotification", (msg) => {
     io.emit("notification", msg);
