@@ -1,4 +1,5 @@
 // imports
+require("dotenv").config();
 const path = require("path");
 const express = require("express");
 const cors = require("cors");
@@ -12,6 +13,7 @@ const { logger } = require("./middleware/logEvents");
 const errorHandler = require("./middleware/errorHandler");
 const corsOptions = require("./config/corsOptions");
 const verifyJWT = require("./middleware/verifyJWT");
+const helmet = require("helmet");
 
 const db = require("./database/database");
 
@@ -23,6 +25,7 @@ app.use(logger);
 app.use(errorHandler);
 app.use(express.json());
 app.use(cookieParser());
+app.use(helmet());
 // routes
 app.use(cors(corsOptions));
 app.use(express.urlencoded({ extended: false }));

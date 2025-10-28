@@ -22,6 +22,9 @@ const logEvents = async (message, logName) => {
 
 const logger = (req, res, next) => {
   logEvents(`${req.method}\t${req.headers.origin}\t${req.url}`, "reqLog.txt");
+  if (process.env.NODE_ENV === "development") {
+    console.log(`${req.method} ${req.path}`);
+  }
   next();
 };
 
