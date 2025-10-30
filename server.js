@@ -21,6 +21,17 @@ const app = express();
 const server = http.createServer(app);
 const io = new Server(server);
 
+if (process.env.NODE_ENV === "production") {
+  const helmet = require("helmet");
+  const rateLimit = require("express-rate-limit");
+  const rateLimiter = rateLimit({
+    windowMS: 15 * 60 * 1000,
+    max: 100,
+  });
+  app.use(helmet());
+  app.use(rateLimiter);
+}
+
 app.use(logger);
 app.use(errorHandler);
 app.use(express.json());
